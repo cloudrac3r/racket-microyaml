@@ -302,9 +302,8 @@
   (tokens->yaml/string (list->vector (file->tokens file-name))))
 
 (module+ test
-  (require racket/pretty
-           profile)
+  (require racket/pretty)
   (yaml-trace? #f)
-  (define v (time (file->tokens "test/explicit-key.yaml" #;(build-path "/var/home/cadence/.var/app/com.valvesoftware.Steam/data/Steam/steamapps/common/Quaver/Songs/" "14859 - 863" "108618.qua"))))
+  (define v (time (file->tokens "test/explicit-key.yaml")))
   (define y (time (tokens->yaml (list->vector v))))
   (pretty-print y))
