@@ -1,0 +1,9 @@
+*~
+*.#
+\#*#
+doc
+compiled
+scribblings/*
+!*.scrbl
+test/dotnet
+test/js

@@ -1,0 +1,24 @@
+# source: https://github.com/zhangyuang/vite-design/blob/2628d3506eaf4e3a92e87412d974b378f023b072/f.yml#L4
+
+service:
+  name: vite-design
+provider:
+  name: aliyun
+
+custom: # 发布后自动生成测试域名
+  customDomain:
+    domainName: 发布后自动生成测试域名
+
+package:
+  include:
+    - build
+  exclude:
+    - package-lock.json
+  artifact: code.zip
+
+deployType:
+  type: static
+  config:
+    rewrite:
+       /$: index.html
+       /*.html : index.html

@@ -1,0 +1,6 @@
+#hash((blank . "sell")
+      (mouth . #t)
+      (official . ((120628046 "unhappy" #f 289829849.19790983) "rise" #t "balloon"))
+      (progress . "her")
+      (respect . "method")
+      (wall . #t))
