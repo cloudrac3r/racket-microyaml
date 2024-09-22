@@ -1,6 +1,6 @@
 #lang scribble/manual
 
-@(require (for-label typed/racket/base microyaml))
+@(require (for-label typed/racket/base microyaml (only-in racket/contract/base any/c)))
 @(define-syntax-rule (deftype args ...)
   @defidform[#:kind "type" args ...])
 
@@ -118,12 +118,13 @@ Returns @racket[#t] only if @racket[v] is one of the following:
 
 @defproc[(yaml-key? [v any/c])
          boolean?]{
-Only relevant for hash keys in @tech{typed mode}. Similar to @racket[yaml-value?], except scalars can be @racket[symbol?] and can't be @racket[string?]. Note that non-scalars are supported.
+Only relevant for hash keys in @tech{typed mode}. It is similar to @racket[yaml-value?], except that @racket[string?] is not allowed and @racket[symbol?] is.
 }
 
 
 
 @deftogether[(@deftype[Yaml-Value]
+              @deftype[Yaml-Key]
               @deftype[Yaml-Hash]
               @deftype[Yaml-List])]{
 Typed Racket definitions for @tech{typed mode} pieces of YAML.
@@ -153,7 +154,7 @@ Returns @racket[#t] only if @racket[v] is one of the following:
 
 @itemlist[
 @item{Scalar: just a @racket[string?]}
-@item{Hash: an immutable @racket[hash?] where each key is a @racket[symbol?] and each value is a @racket[yaml-value-string?]}
+@item{Hash: an immutable @racket[hasheq?] where each key is a @racket[symbol?] and each value is a @racket[yaml-value-string?]}
 @item{Sequence: an immutable @racket[list?] of @racket[yaml-value-string?]}
 ]
 

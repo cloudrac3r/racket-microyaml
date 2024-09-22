@@ -108,6 +108,7 @@
           (reverse
            (append (list t)
                    (map (λ (_) (token 'OUTDENT 0)) (cdr indent-stack))
+                   (if (eq? (token-type (car result)) 'NEWLINE) null (list (token 'NEWLINE "")))
                    result
                    ))]
 
